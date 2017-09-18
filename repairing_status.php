@@ -87,7 +87,7 @@ while ($myrow = db_fetch($result))
 
     alt_table_row_color($k);
 
-    label_cell($myrow["description"]);
+    label_cell($myrow["description_new"]);
 
     inactive_control_cell($myrow["id"], $myrow["inactive"], 'material', 'id');
 
@@ -95,6 +95,7 @@ while ($myrow = db_fetch($result))
     delete_button_cell("Delete".$myrow["id"], _("Delete"));
     end_row();
 }
+
 
 inactive_control_row($th);
 end_table();
@@ -110,7 +111,7 @@ if ($selected_id != -1)
         //editing an existing area
         $myrow = get_repairing_status1($selected_id);
 
-        $_POST['description']  = $myrow["description"];
+        $_POST['description_new']  = $myrow["description_new"];
     }
     hidden("selected_id", $selected_id);
 }
